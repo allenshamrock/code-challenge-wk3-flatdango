@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         availableTickets.innerHTML = `Tickets available (${
           firstMovie.capacity - firstMovie.tickets_sold
         })`;
-        movieImg.innerHTML = firstMovie.poster;
+        movieImg.src = firstMovie.poster;
 
         //Computing tickets remaining
         let tickets = Number(firstMovie.capacity - firstMovie.tickets_sold);
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return res.json();
       })
       .then((data) => {
-        // console.log(data);               
+        // console.log(data);
 
         for (i = 0; i < data.length; i++) {
           let item = data[i];
@@ -77,8 +77,10 @@ document.addEventListener("DOMContentLoaded", () => {
             availableTickets.innerHTML = `Tickets available (${
               item.capacity - item.tickets_sold
             })`;
-            movieImg.innerHTML = item.poster;
+            movieImg.src = item.poster;
 
+            let tickets = Number(item.capacity - item.tickets_sold);
+            //console.log(tickets)
             btn.addEventListener("click", () => {
               console.log("I have been clicked");
               tickets--;
