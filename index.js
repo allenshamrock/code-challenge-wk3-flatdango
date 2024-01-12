@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const movieShowtime = document.querySelector(".showtime");
         const availableTickets = document.querySelector(".avaliable-tickets");
         const movieImg = document.querySelector(".poster");
-        const btn = document.querySelector(".btn");
+        // const btn = document.querySelector(".btn");
+        const btn = document.getElementById("buyButton");
 
         movieTitle.innerHTML = firstMovie.title;
         movieDescription.innerHTML = firstMovie.description;
@@ -38,6 +39,22 @@ document.addEventListener("DOMContentLoaded", () => {
           } else {
             availableTickets.innerHTML = `Tickets available :${tickets}`;
           }
+          //Change the text content whenver the tickets are out of stock
+          if (tickets <= 0) {
+            btn.innerHTML = "SOLD OUT";
+            availableTickets.innerHTML = `Tickets available :${"SOLD OUT"}`;
+          } else {
+            availableTickets.innerHTML = `Tickets available :${tickets}`;
+          }
+
+          //Change the text content whenver the tickets are out of stock
+          if (tickets <= 0) {
+            btn.innerHTML = "SOLD OUT";
+            btn.classList.add("sold");
+          } else {
+            btn.innerHTML = "Buy Ticket";
+            btn.classList.remove("sold");
+          }
         });
       });
   }
@@ -55,12 +72,14 @@ document.addEventListener("DOMContentLoaded", () => {
         for (i = 0; i < data.length; i++) {
           let item = data[i];
           // console.log(item)
+
           const movieslist = document.createElement("li");
           const list = document.querySelector(".listing");
           movieslist.innerHTML = item.title;
           list.appendChild(movieslist);
 
           movieslist.addEventListener("click", () => {
+            //const movieBtn = document.getElementById('sold')
             const movieTitle = document.querySelector(".movie-title");
             const movieDescription = document.querySelector(".description");
             const movieRuntime = document.querySelector(".runtime");
@@ -68,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const availableTickets =
               document.querySelector(".avaliable-tickets");
             const movieImg = document.querySelector(".poster");
-            const btn = document.querySelector(".btn");
+            const btn = document.getElementById("buyButton");
 
             movieTitle.innerHTML = item.title;
             movieDescription.innerHTML = item.description;
@@ -78,16 +97,25 @@ document.addEventListener("DOMContentLoaded", () => {
               item.capacity - item.tickets_sold
             })`;
             movieImg.src = item.poster;
-
+            //Computing to get the amount of tickets remaing
             let tickets = Number(item.capacity - item.tickets_sold);
             //console.log(tickets)
             btn.addEventListener("click", () => {
-              console.log("I have been clicked");
+              // console.log("I have been clicked");
               tickets--;
               if (tickets <= 0) {
                 availableTickets.innerHTML = "SOLD OUT";
               } else {
                 availableTickets.innerHTML = `Tickets available :${tickets}`;
+              }
+
+              //Change the text content whenver the tickets are out of stock
+              if (tickets <= 0) {
+                btn.innerHTML = "SOLD OUT";
+                btn.classList.add("sold");
+              } else {
+                btn.innerHTML = "Buy Ticket";
+                btn.classList.remove("sold");
               }
             });
           });

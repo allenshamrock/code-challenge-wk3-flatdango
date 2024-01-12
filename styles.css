@@ -4,12 +4,12 @@
   box-sizing: border-box;
 }
 
-/* body {
-  background-image: url(./denise-jans-Lq6rcifGjOU-unsplash.jpg);
+body {
+  background-image: url(./barry-weatherall-Hm_iFim94bw-unsplash.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-} */
+}
 
 .heading {
   border: 2px solid black;
@@ -89,53 +89,67 @@
   font-family: "Josefin Sans", sans-serif;
   text-transform: capitalize;
   font-size: 22px;
+  color: white;
 }
 
 .left-row ul li:hover {
   border: 2px solid #fb8500;
   height: 4rem;
   cursor: pointer;
+  background-color: black;
 }
 .description {
   font-family: "Josefin Sans", sans-serif;
   text-transform: capitalize;
   font-size: 22px;
+  color: white;
 }
 .movie-details {
   margin-top: 20px;
   display: flex;
   gap: 30px;
   justify-content: center;
+  background-color: black;
 }
 
 .movie-details li {
   font-family: "Josefin Sans", sans-serif;
   text-transform: capitalize;
-  border: 2px solid black;
+  border: 2px solid red;
   padding: 3px;
   border-radius: 5px;
   list-style: none;
   text-align: center;
+  color: white;
 }
 
 .movie-details-container {
   border: 2px solid black;
   margin: 10px 20px;
   box-shadow: 10px 10px 9px rgb(190, 187, 187);
+  background-color: black;
 }
 .poster {
   height: 100vh;
   width: 100%;
   object-fit: cover;
-  
 }
 
-.btn{
-padding: 10px;
-text-align: center;
-background-color: #6af5cd;
-border: none;
-outline: none;
-border-radius: 10px;
-margin: 10px;
+.btn {
+  padding: 10px;
+  text-align: center;
+  background-color: #47c68d;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in;
+}
+
+
+.sold {
+  background-color: #f14668;
+  font-weight: 700;
+  color: #fff;
 }
